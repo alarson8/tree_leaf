@@ -2,14 +2,11 @@ require 'spec_helper'
 
 describe Day do
 
-  context "relations" do
+  context "sessions initialization" do
 
     let(:day) { Day.new }
     let(:session_1) { Session.new }
     let(:session_2) { Session.new }
-
-    before :all do
-    end
 
     it "returns an empty array if it has no sessions" do
       day.sessions = nil
@@ -23,9 +20,30 @@ describe Day do
 
   end
 
-end
+  context "displays" do
 
-    # xit "has many timeslots" do
-    #   day.timeslots = [1,2,3]
-    #   expect(day.timeslots).to eq([1,2,3])
-    # end
+    let(:day) { Day.new }
+    let(:session_1) { Session.new }
+    let(:session_2) { Session.new }
+
+    before do
+      session_1.start_time = "1:00"
+      session_1.end_time = "1:30"
+      session_1.patient_name = "Betty"
+
+      session_2.start_time = "2:00"
+      session_2.end_time = "2:30"
+      session_2.patient_name = "Frank"
+
+      day.sessions = [session_1, session_2]
+
+    end
+
+    it "all of its sessions" do
+      expected = "1:00 to 1:30 Betty\\r2:00 to 2:30 Frank"
+      expect(day.display_sessions).to eq(expected)
+    end
+
+  end
+
+end

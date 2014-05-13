@@ -6,4 +6,8 @@ class Day
     @sessions ||= []
   end
 
+  def display_sessions
+    sessions.map(&:display).join('\\r')
+  end
+
 end
