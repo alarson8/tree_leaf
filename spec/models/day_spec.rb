@@ -40,7 +40,7 @@ describe Day do
     end
 
     it "all of its sessions" do
-      expected = "1:00 to 1:30 Betty\\r2:00 to 2:30 Frank"
+      expected = "01:00 to 01:30 Betty\\r02:00 to 02:30 Frank"
       expect(day.display_sessions).to eq(expected)
     end
 
