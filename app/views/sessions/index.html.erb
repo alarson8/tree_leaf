@@ -1,0 +1,8 @@
+<h1><%= @sessions.count > 0 && @sessions.count || "No" %> Sessions for <%= @date %> via SessionsController</h1>
+
+<% @sessions.each do |session| %>
+
+  <%= session.display %>
+  <br />
+
+<% end %>
