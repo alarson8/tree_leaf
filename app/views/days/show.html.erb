@@ -1,0 +1,8 @@
+<h1><%= @day.sessions_count %> Sessions for <%= @day.formatted_date %> via DaysController</h1>
+
+<% @day.sessions.each do |session| %>
+
+  <%= session.display %>
+  <br />
+
+<% end %>
