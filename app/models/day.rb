@@ -14,13 +14,13 @@ class Day
   end
 
   def formatted_date
-    return "None" unless date
+    return "None" unless self.date
     date.strftime("%B %d, %Y")
   end
 
   def sessions
-    return [] unless date
-    @sessions ||= Session.for_date(date)
+    return [] unless self.date
+    @sessions ||= Session.for_date(self.date)
   end
 
   def sessions_count
